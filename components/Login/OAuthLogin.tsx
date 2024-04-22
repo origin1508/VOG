@@ -12,7 +12,7 @@ const OAuthLogin = () => {
   return (
     <OAuthContainer>
       <NaverLogin
-        href={`https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${NAVER_CLIENT_ID}&state=${NAVER_CLIENT_STATE}&redirect_uri=https://talkgg.online/auth/login/naver`}
+        href={`https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${NAVER_CLIENT_ID}&state=${NAVER_CLIENT_STATE}&redirect_uri=http://localhost:3002/auth/login/naver`}
       >
         <LogoIcon
           src={"/image/logo_naver.png"}
@@ -24,7 +24,7 @@ const OAuthLogin = () => {
         <LoginText>네이버로 로그인</LoginText>
       </NaverLogin>
       <KakaoLogin
-        href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${KAKAO_CLIENT_ID}&redirect_uri=https://talkgg.online/auth/login/kakao&state=${KAKAO_CLIENT_STATE}`}
+        href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${KAKAO_CLIENT_ID}&redirect_uri=http://localhost:3002/auth/login/kakao&state=${KAKAO_CLIENT_STATE}`}
       >
         <LogoIcon
           src={"/image/logo_kakao.png"}

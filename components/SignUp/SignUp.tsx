@@ -9,15 +9,21 @@ import ErrorMessage from "../common/ErrorMessage";
 import { signUpRequest } from "@/apis/user";
 import { SignUpValue } from "@/types/auth";
 import { setAccessToken } from "@/utils/tokenManager";
+import { ParsedUrlQuery } from "querystring";
+
+interface SignUpQuery extends ParsedUrlQuery {
+  oauthId: string;
+  provider: string;
+}
 
 const SignUp = () => {
   const { watchNickname, nicknameError, register, handleSubmit } =
     useSignUpForm();
-  const { user, setUser } = useUserState();
+  const { setUser } = useUserState();
   const { toast } = useToast();
   const router = useRouter();
-  const oauthId = user.oauthId;
-  const provider = user.provider;
+  const { oauthId, provider } = router.query as SignUpQuery;
+
   const handleSignUp = async ({ nickname, gender }: SignUpValue) => {
     const res = await signUpRequest(oauthId, provider, nickname, gender);
     if (res.success) {
